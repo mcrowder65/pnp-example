@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "patch-package",
+    "postinstall-asdf": "patch-package",
     "lint": "eslint src test *.js api",
     "dev": "react-app-rewired start -p 9229 --debug-apis",
     "start": "vercel dev",
@@ -44,6 +44,7 @@
     "http-proxy-middleware": "^2.0.1",
     "jest-axe": "5.0.1",
     "patch-package": "^6.4.7",
+    "pnp-webpack-plugin": "^1.7.0",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "2.5.1",
     "react-app-rewired": "2.1.11",
@@ -63,5 +64,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "installConfig": {
+    "pnp": true
+  },
+  "packageManager": "yarn@3.2.0"
 }

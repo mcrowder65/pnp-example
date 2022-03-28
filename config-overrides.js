@@ -4,6 +4,7 @@ const {
   addBundleVisualizer,
   addBabelPreset,
 } = require("customize-cra")
+const PnpWebpackPlugin = require(`pnp-webpack-plugin`);
 
 let config = override(
   (config) => {
@@ -12,6 +13,13 @@ let config = override(
     })
     // Adds human readable names to chunks
     config.optimization.chunkIds = "named"
+    
+    config.resolve.plugins.push(PnpWebpackPlugin)
+    config.resolveLoader = {
+      plugins: [
+        PnpWebpackPlugin.moduleLoader(module)
+      ]
+    }
     return config
   },
   addBabelPlugin("@emotion/babel-plugin"),
